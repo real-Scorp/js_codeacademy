@@ -1,0 +1,73 @@
+//initiaze variables
+// console.log(computerChoice);
+var playersChoice = ' '
+
+//Function for user to  select their choice
+
+const getUserChoice = userInput => {
+  userInput = userInput.toLowerCase();
+  if(userInput === 'rock'){
+  return userInput
+  }else if(userInput === 'scissors'){
+  return userInput
+  }else if(userInput === 'paper'){
+  return userInput;
+  } else {
+    console.log('Please select either Rock, Paper or Scissors');
+}}
+
+//Function to assign computers choice in the game
+function getComputerChoice(){
+  var randomNumber = Math.random();
+  if(randomNumber <= 0.33) {
+  computerChoice = 'rock';
+  return computerChoice;
+  }else if(randomNumber > 0.33 && randomNumber <= 0.66) {
+  computerChoice = 'saper';
+  return computerChoice
+ }else{
+   computerChoice = 'scissors';
+  return computerChoice
+ }} 
+
+//Function to see who wins the game
+function determineWinner(userChoice, computerChoice){
+   //checks tied hand first of alll
+   if(userChoice === computerChoice){
+    return 'That game was a tied game!';
+
+  //checks if user picks paper
+   }if(userChoice === 'paper') {
+     if(computerChoice = 'scissors'){
+       return 'You lost!';
+       }else{
+       return 'You won!'; 
+       }
+
+  //checks if user picks rock  
+  }if(userChoice === 'rock')  {
+      if (computerChoice === 'paper') {
+        return 'The Computer won!';
+        }else{
+        return 'You Won!'
+    }   
+  //checks if user picks scissors  
+  }if(userChoice === 'scissors'){
+    if(computerChoice === 'paper'){
+      return 'You have won!';
+      }else{
+      return 'The Computer won!';
+      }
+      }
+ } 
+
+
+const playGame = () => {
+  const userChoice = getUserChoice('scissors');
+  const computerChoice = getComputerChoice();
+  console.log(`You threw ${userChoice}`);
+  console.log(`The computer threw ${computerChoice}`);
+  console.log(determineWinner(userChoice, computerChoice));
+  }
+
+playGame()
