@@ -1,0 +1,68 @@
+//function that returns any given night’s number of hours of rest
+function getSleepHours(day){
+  if (day === 'Monday'){
+    hoursSlept = 6;
+    return hoursSlept;
+  } else if (day === 'Tuesday') {
+    hoursSlept = 2;
+    return hoursSlept;
+  }else if (day === 'Wednesday') {
+    hoursSlept = 8;
+    return hoursSlept;
+  }else if (day === 'Thursday') {
+    hoursSlept = 7;
+    return hoursSlept;
+  }else if (day === 'Friday') {
+    hoursSlept = 7;
+    return hoursSlept;
+  }else if (day === 'Saturday') {
+    hoursSlept = 5;
+    return hoursSlept;
+  }else if (day === 'Sunday') {
+    hoursSlept = 6;
+    return hoursSlept;
+  }
+}
+//console.log(getSleepHours('Friday'))
+   
+//function to get the total sleep hours i actually slept that week 
+
+function getActualSleepHours () {
+  totalSlept = getSleepHours('Monday');
+  totalSlept += getSleepHours('Tuesday'); 
+  totalSlept += getSleepHours('Wednesday');
+  totalSlept += getSleepHours('Thursday');
+  totalSlept += getSleepHours('Friday');
+  totalSlept += getSleepHours('Saturday');
+  totalSlept += getSleepHours('Sunday');
+  return totalSlept;     
+}
+
+//console.log(getActualSleepHours())
+
+//get the ideal sleep hours that you prefer function
+
+function getIdealSleepHours () {
+  idealHours = 8.5 ;
+  return idealHours * 7;
+}
+
+//console.log(getIdealSleepHours());
+
+//function to calculate the sleep debt
+
+function calculateSleepDebt () {
+  actualSleepHours = getActualSleepHours();
+  idealSleepHours = getIdealSleepHours();
+  if(actualSleepHours === idealSleepHours) {
+    console.log(`Well done. you got the perfect amount of sleep this week with ${actualSleepHours}`);
+  }else if(actualSleepHours < idealSleepHours){  
+     console.log(`You received less than the ideal amount of sleep by ${idealSleepHours - actualSleepHours} hours. Try rest more.`);
+  }else{
+    console.log(`You actually slept too much this week by ${actualSleepHours - idealSleepHours}. Lazy fucker.`);
+  }
+}
+
+console.log(calculateSleepDebt());
+
+
